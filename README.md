@@ -1,11 +1,13 @@
-# Readme
+# Setting Up
 
 We'll set up a single Jenkins master and agent with the following steps.
 
 ## Master
 
-Run `docker-compose up -d` in the project directory, which will run the Jenkins master on `localhost:8080`.
-Follow the given installation steps as usual; the administrator password may be seen in the Docker logs for the master container.
+Run `docker-compose up [-d] master` in the project directory, which will serve the Jenkins master on `localhost:8080`.
+The Jenkins master's home directory is mounted and can be accessed locally on `/master/app/`.
+
+Follow the given installation steps as usual.
 
 ## Agent
 
@@ -18,7 +20,7 @@ The remaining configurations may be left as its defaults, or customised accordin
 
 #### Setup the agent
 
-Go to the agent's status page, and copy the secret key to a new `.env` file in the local project directory.
+Go to the agent's status page, and copy the secret key to a new `.env` file in the local project directory:
 
 ```
 AGENT_SECRET=<secret-key>
