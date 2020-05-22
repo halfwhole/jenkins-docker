@@ -1,3 +1,0 @@
-[submodule "jenkins-test"]
-	path = jenkins-test
-	url = https://github.com/halfwhole/jenkins-test.git
