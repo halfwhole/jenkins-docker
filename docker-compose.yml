@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  master:
+    build: ./master/
+    volumes:
+      - ./master/app:/var/jenkins_home
+    ports:
+      - 8080:8080
+      - 50000:50000
+    environment:
+      - TZ=Asia/Singapore
+
+  agent:
+    build: ./agent/
+    command: -url http://master:8080 -workDir=/home/jenkins ${AGENT_SECRET} agent
+    restart: always
+    depends_on:
+      - master
